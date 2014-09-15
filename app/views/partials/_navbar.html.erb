@@ -1,0 +1,30 @@
+
+
+<!-- <nav class="navbar navbar-default" role="navigation">
+ -->  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      
+      <div class ="brand">
+      <a class="navbar-brand" style="color: black;" >SpotFind</a>
+    </div>
+  </div>
+
+        
+      
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li class="Logout">
+         <%= link_to "Logout", session_path, method: :delete, class: "navstyle" %>
+          </li>
+          <% else %>
+        <li class ="login"><a href="http://localhost:3000/session/new" class="navstyle">Login</a></li>
+        <li class="dropdown">
+          <a href="<%= new_user_path %>" class="navstyle">Sign Up </a>
+          <% end %>
+          
+        </li>
+      </ul>
+    </div>
+</nav>
+
