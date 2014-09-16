@@ -1,7 +1,7 @@
 
 
 <!-- <nav class="navbar navbar-default" role="navigation">
- -->  <div class="container-fluid">
+ -->  <div class="container-fluid navcolor" style=" margin-bottom: -20px;">
     
     <div class="navbar-header">
       
@@ -10,21 +10,41 @@
     </div>
   </div>
 
+    
+
         
       
-      <ul class="nav navbar-nav navbar-right">
+      
+
+
+
         <% if current_user %>
-          <li class="Logout">
+
+          <li class="Logout nav navbar-nav navbar-right navstyle dropdown">
          <%= link_to "Logout", session_path, method: :delete, class: "navstyle" %>
           </li>
+
           <% else %>
-        <li class ="login"><a href="http://localhost:3000/session/new" class="navstyle">Login</a></li>
-        <li class="dropdown">
-          <a href="<%= new_user_path %>" class="navstyle">Sign Up </a>
+          <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" data-ng-model="tagQuery.name">
+        </div>
+    </form>
+        <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" data-ng-model="tagQuery.name">
+        </div>
+        <button type="submit" class="btn btn-primary" data-target="#login">Log In</button>
+    </form>
+        
+
           <% end %>
           
         </li>
       </ul>
     </div>
 </nav>
+
+<br>
 
