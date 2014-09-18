@@ -12,39 +12,31 @@
 
     
 
-        
-      
-      
-
-
-
-        <% if current_user %>
-
-          <li class="Logout nav navbar-nav navbar-right navstyle dropdown">
-         <%= link_to "Logout", session_path, method: :delete, class: "navstyle" %>
-          </li>
+          <% if current_user %>
+          <ul class="Logout nav navbar-nav navbar-right nav_links">
+           <li><a style="color: black;" href="<%= welcomes_path %>">Add Spot</a></li>
+          <li><a style="color: black;" href="<%= welcomes_path %>">Blank</a></li>
+         <li><%= link_to "Logout", session_path, method: :delete, class: "logout" %></li>
+          </ul>
 
           <% else %>
-          <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" data-ng-model="tagQuery.name">
-        </div>
-    </form>
-        <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" data-ng-model="tagQuery.name">
-        </div>
-        <button type="submit" class="btn btn-primary" data-target="#login">Log In</button>
-    </form>
         
+          <div class="nav navbar-nav navbar-right form-inline" style="padding-top: 7px; padding-right: 5px;">
+        <%= form_for session_path, method: :create do |f| %>
 
-          <% end %>
-          
-        </li>
-      </ul>
+      <%= f.text_field :username, placeholder: 'Username', class: 'form-control', autofocus: true %>
+    
+    
+      <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
+    
+    
+    <%= f.submit 'Login', class: 'btn btn-primary' %>
+      </div>
+        
+    <% end %> 
+       <% end %>
+      
     </div>
-</nav>
 
 <br>
 

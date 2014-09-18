@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # Store as a cookie in the users' browser the ID of them,
       # indicating that they are logged in
       session[:user_id] = u.id.to_s
-      redirect_to mains_path
+      redirect_to root_path
       # food_path change with new directory made
     else
       # Go back to the login page
