@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910001129) do
+ActiveRecord::Schema.define(version: 20140919182202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,10 @@ ActiveRecord::Schema.define(version: 20140910001129) do
     t.string   "description"
     t.integer  "bust_factor"
     t.string   "rating"
-    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "lat"
+    t.float    "lon"
   end
 
   create_table "user_spots", force: true do |t|

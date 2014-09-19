@@ -77,6 +77,8 @@ function initialize() {
     google.maps.event.addListener(marker, 'dragend', function() {
       updateMarkerStatus('Drag ended');
       geocodePosition(marker.getPosition());
+      $.post("/spots", {lat:latLng.lat(),
+      lng:latLng.lng()}, function(data){console.log(data);});
     });
   });
 }
