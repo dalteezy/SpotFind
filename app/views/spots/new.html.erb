@@ -38,8 +38,10 @@ function updateMarkerPosition(latLng) {
     latLng.lat(),
     latLng.lng()
   ].join(', ');
+  function postSpot() {
   $.post("/spots", {lat:latLng.lat(),
   lng:latLng.lng()}, function(data){console.log(data);});
+}
 }
 
 function updateMarkerAddress(str) {
@@ -61,7 +63,7 @@ function initialize() {
       position: latLng,
       title: 'Point A',
       map: map,
-      icon: 'http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-007777/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/rollerskate.png',
+      icon: 'http://i62.tinypic.com/9r3jo7.png',
       draggable: true
     });
     
@@ -103,6 +105,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <body>
   <input type="button" value="Show my location on Map"
                 onclick="showlocation()" />
+  <input type="button" value="Save"
+                onclick="postSpot()" />
   
   
   
