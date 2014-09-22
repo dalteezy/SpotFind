@@ -13,9 +13,10 @@
   </div>
 <script type="text/javascript">
 
-
-
 var geocoder = new google.maps.Geocoder();
+
+var lastLat = null,
+ lastLon = null;
 
 function geocodePosition(pos) {
   geocoder.geocode({
@@ -38,12 +39,11 @@ function updateMarkerPosition(latLng) {
     latLng.lat(),
     latLng.lng()
   ].join(', ');
-  function postSpot() {
-  $.post("/spots", {lat:latLng.lat(),
-  lng:latLng.lng()}, function(data){console.log(data);});
+  window.latLng = latLng;
+  lastLat = latLng.lat();
+  lastLon = latLng.lng();
+//  $("#btnSaveSpot").attr("disabled", "false");
 }
-}
-
 function updateMarkerAddress(str) {
   document.getElementById('address').innerHTML = str;
 }
@@ -57,7 +57,6 @@ function initialize() {
       center: latLng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-
 
     var marker = new google.maps.Marker({
       position: latLng,
@@ -88,6 +87,13 @@ function initialize() {
       geocodePosition(newPos);
     });
   });
+// attr("disabled", "true").
+  $("#btnSaveSpot").click(function(){
+    if(lastLat && lastLon) {
+      $.post("/spots", {lat:lastLat,
+        lng:lastLon}, function(data){console.log(data);});
+    }
+  });
 }
 
 function showlocation() {
@@ -105,9 +111,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <body>
   <input type="button" value="Show my location on Map"
                 onclick="showlocation()" />
-  <input type="button" value="Save"
-                onclick="postSpot()" />
-  
+ 
+  <input id="btnSaveSpot" type="button" value="What the what!!!" />
   
   
   <div id="mapCanvas"></div>
