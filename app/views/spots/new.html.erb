@@ -38,6 +38,8 @@ function updateMarkerPosition(latLng) {
     latLng.lat(),
     latLng.lng()
   ].join(', ');
+  $.post("/spots", {lat:latLng.lat(),
+  lng:latLng.lng()}, function(data){console.log(data);});
 }
 
 function updateMarkerAddress(str) {
@@ -79,8 +81,6 @@ function initialize() {
       var newPos = marker.getPosition();
       updateMarkerPosition(newPos);
       geocodePosition(newPos);
-      $.post("/spots", {lat:latLng.lat(),
-      lng:latLng.lng()}, function(data){console.log(data);});
     });
   });
 }
