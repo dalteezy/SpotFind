@@ -55,10 +55,13 @@ function initialize() {
       center: latLng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+
+
     var marker = new google.maps.Marker({
       position: latLng,
       title: 'Point A',
       map: map,
+      icon: 'http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-007777/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/rollerskate.png',
       draggable: true
     });
     
