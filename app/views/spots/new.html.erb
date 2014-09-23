@@ -90,12 +90,14 @@ function initialize() {
     });
   });
 // attr("disabled", "true").
-  $("#btnSaveSpot").click(function(){
-    if(lastLat && lastLon) {
-      $.post("/spots", {lat:lastLat,
-        lng:lastLon});
-    }
-  });
+
+
+  // $("#btnSaveSpot").click(function(){
+  //   if(lastLat && lastLon) {
+  //     $.post("/spots", {lat:lastLat,
+  //       lng:lastLon});
+  //   }
+  // });
 }
 
 function showlocation() {
@@ -121,11 +123,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
     Rating: <%= s.text_field :rating %><br/>
     <%= s.hidden_field :lat %>
     <%= s.hidden_field :lon %>
-    <%= s.submit %>
+    <%= s.submit "Add Spot" %>
 <% end %>
 </div>
 
-  <input id="btnSaveSpot" type="button" value="Save Spot"/>
+  <!-- <input id="btnSaveSpot" type="button" value="Save Spot"/> -->
   
   
   <div id="mapCanvas"></div>
