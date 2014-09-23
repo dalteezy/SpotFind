@@ -42,6 +42,7 @@ function updateMarkerPosition(latLng) {
   window.latLng = latLng;
   lastLat = latLng.lat();
   lastLon = latLng.lng();
+  // Fills hidden_field with lat and lon
   document.getElementById("spot_lat").value = lastLat;
   document.getElementById("spot_lon").value = lastLon;
 //  $("#btnSaveSpot").attr("disabled", "false");
