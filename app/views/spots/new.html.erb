@@ -42,6 +42,8 @@ function updateMarkerPosition(latLng) {
   window.latLng = latLng;
   lastLat = latLng.lat();
   lastLon = latLng.lng();
+  document.getElementById("spot_lat").value = lastLat;
+  document.getElementById("spot_lon").value = lastLon;
 //  $("#btnSaveSpot").attr("disabled", "false");
 }
 function updateMarkerAddress(str) {
@@ -123,7 +125,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <% end %>
 </div>
 
-  <input id="btnSaveSpot" type="button" value="Save Spot" />
+  <input id="btnSaveSpot" type="button" value="Save Spot"/>
   
   
   <div id="mapCanvas"></div>

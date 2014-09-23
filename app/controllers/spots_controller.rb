@@ -6,6 +6,8 @@ class SpotsController < ApplicationController
 
   def create
     Spot.create(lat:params[:lat], lon:params[:lng])
+    Spot.create(spot_params)
+    redirect_to welcomes_path
   end
 
 private
