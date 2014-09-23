@@ -1,12 +1,16 @@
 class SpotsController < ApplicationController
 
+  def index
+    @spot = Spot.all
+  end
+
   def new
     @spot = Spot.new
   end
 
   def create
     Spot.create(spot_params)
-    redirect_to welcomes_path
+    redirect_to spots_path
   end
 
 private

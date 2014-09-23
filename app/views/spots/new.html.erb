@@ -120,7 +120,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <%= form_for @spot do |s| %>
     Name: <%= s.text_field :name %><br/>
     Description: <%= s.text_field :description %><br/>
-    Bust_Factor: <%= s.text_field :bust_factor %><br/>
+    <acronym title="Scale of 1-10. 1 being least bust, 10 being the biggest bust">Bust_Factor:</acronym> <%= s.text_field :bust_factor %><br/>
     Rating: <%= s.text_field :rating %><br/>
     <%= s.hidden_field :lat %>
     <%= s.hidden_field :lon %>

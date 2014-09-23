@@ -1,0 +1,49 @@
+<h1> Global map of all spots shown here </h1>
+<%= button_to "Add Spot", new_spot_path, method: :get, class: "btn btn-success" %>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDt1jfiTw9HXhY4P5atz6dxui0hADhAfBo">
+    </script>
+    <script type="text/javascript">
+
+    
+      function initialize() {
+        
+  var mapOptions = {
+     center : {
+        lat: 34.012980899999995,
+        lng: -118.49515380000003
+        },
+    zoom: 5
+  };
+  
+  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+  var mapPoints = [<% @spot.each do |s| %>
+    {latitude: <%= s.lat %>, longitude: <%= s.lon %>},<% end %>];
+
+  for(var i = 0; i < mapPoints.length; ++i)
+  {
+    var someCoolPlace = new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude);
+    var marker = new google.maps.Marker({
+      position: someCoolPlace,
+      map: map
+    });
+  }
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+  </head>
+  <body>
+<div id="map-canvas"></div>
+  </body>
+</html>
