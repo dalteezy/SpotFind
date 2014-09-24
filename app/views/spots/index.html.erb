@@ -15,7 +15,7 @@
 
     
       function initialize() {
-        
+
   var mapOptions = {
      center : {
         lat: 34.012980899999995,
@@ -26,17 +26,36 @@
   
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
+
+
+
   var mapPoints = [<% @spot.each do |s| %>
     {latitude: <%= s.lat %>, longitude: <%= s.lon %>},<% end %>];
 
-  for(var i = 0; i < mapPoints.length; ++i)
-  {
+  for(var i = 0; i < mapPoints.length; ++i) {
     var someCoolPlace = new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude);
     var marker = new google.maps.Marker({
       position: someCoolPlace,
       map: map
     });
+  
+marker.setTitle((i + 1).toString());
+    attachSecretMessage(marker, i);
   }
+}
+
+
+
+// The five markers show a secret message when clicked
+// but that message is not within the marker's instance data
+function attachSecretMessage(marker) {
+  var infowindow = new google.maps.InfoWindow({
+    content: "@spots.each do "
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(marker.get('map'), marker);
+  });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
