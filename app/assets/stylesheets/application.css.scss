@@ -50,6 +50,7 @@ margin: 0;
   #infoPanel {
     float: left;
     margin-left: 10px;
+    margin: auto;
   }
   #infoPanel div {
     margin-bottom: 11px;
@@ -65,4 +66,9 @@ margin: 0;
 
   .spot_button {
   border-radius: 0px;
+  }
+
+  .add_spot_button {
+  position: relative;
+  left: 25%;
   }
