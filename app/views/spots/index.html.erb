@@ -14,7 +14,7 @@
     <script type="text/javascript">
 
       
-      function initialize() {
+function initialize() {
 
   var mapOptions = {
      center : {
@@ -26,33 +26,30 @@
   
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-
-
-
   var mapPoints = [<% @spot.each do |s| %>
-    {latitude: <%= s.lat %>, longitude: <%= s.lon %>},<% end %>];
+    {latitude: <%= s.lat %>, longitude: <%= s.lon %>, name: "<%= s.name %>",
+      description: "<%= s.description %>"},<% end %>];
 
   for(var i = 0; i < mapPoints.length; ++i) {
     var someCoolPlace = new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude);
     var marker = new google.maps.Marker({
       position: someCoolPlace,
       icon: 'http://i62.tinypic.com/9r3jo7.png',
-      map: map
+      map: map,
+      name: mapPoints[i].name,
+      description: mapPoints[i].description
     });
   
-marker.setTitle((i + 1).toString());
+    marker.setTitle((i + 1).toString());
     attachSecretMessage(marker, i);
   }
 }
 
-
-
 // The five markers show a secret message when clicked
 // but that message is not within the marker's instance data
 function attachSecretMessage(marker) {
-    var contentString = "hello";
   var infowindow = new google.maps.InfoWindow({
-    content: contentString
+    content: "Name: " + marker.name + ", Description: " + marker.description
   });
 
   google.maps.event.addListener(marker, 'click', function() {

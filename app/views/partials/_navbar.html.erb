@@ -22,7 +22,8 @@
           <% else %>
         
           <div class="nav navbar-nav navbar-right form-inline" style="padding-top: 7px; padding-right: 5px;">
-        <%= form_for session_path, method: :create do |f| %>
+            
+        <%= form_for(:session, url: session_path) do |f| %>
 
       <%= f.text_field :username, placeholder: 'Username', class: 'form-control', autofocus: true %>
     
