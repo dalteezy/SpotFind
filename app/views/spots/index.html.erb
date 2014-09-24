@@ -28,7 +28,7 @@ function initialize() {
 
   var mapPoints = [<% @spot.each do |s| %>
     {latitude: <%= s.lat %>, longitude: <%= s.lon %>, name: "<%= s.name %>",
-      description: "<%= s.description %>"},<% end %>];
+      description: "<%= s.description %>", bust_factor: "<%= s.bust_factor %>", rating: "<%= s.rating %>"},<% end %>];
 
   for(var i = 0; i < mapPoints.length; ++i) {
     var someCoolPlace = new google.maps.LatLng(mapPoints[i].latitude, mapPoints[i].longitude);
@@ -37,7 +37,9 @@ function initialize() {
       icon: 'http://i62.tinypic.com/9r3jo7.png',
       map: map,
       name: mapPoints[i].name,
-      description: mapPoints[i].description
+      description: mapPoints[i].description,
+      bust_factor: mapPoints[i].bust_factor,
+      rating: mapPoints[i].rating
     });
   
     marker.setTitle((i + 1).toString());
@@ -49,7 +51,7 @@ function initialize() {
 // but that message is not within the marker's instance data
 function attachSecretMessage(marker) {
   var infowindow = new google.maps.InfoWindow({
-    content: "Name: " + marker.name + ", Description: " + marker.description
+    content: "Name: " + marker.name + ", Description: " + marker.description + ", Bust Factor: " + marker.bust_factor + ", Rating: " + marker.rating
   });
 
   google.maps.event.addListener(marker, 'click', function() {
