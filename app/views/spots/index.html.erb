@@ -51,7 +51,7 @@ function initialize() {
 // but that message is not within the marker's instance data
 function attachSecretMessage(marker) {
   var infowindow = new google.maps.InfoWindow({
-    content: "Name: " + marker.name + ", Description: " + marker.description + ", Bust Factor: " + marker.bust_factor + ", Rating: " + marker.rating
+    content: "<b>" + "Name: " + "</b>" + marker.name + "<br>" + "<b>" + " Description: " + "</b>" + marker.description + "<br>" + "<b>" + " Bust Factor: " + "</b>" + marker.bust_factor + "<br>" + "<b>" + " Rating: " + "</b>" + marker.rating
   });
 
   google.maps.event.addListener(marker, 'click', function() {
