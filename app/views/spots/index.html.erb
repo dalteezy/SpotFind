@@ -51,10 +51,9 @@ marker.setTitle((i + 1).toString());
 // but that message is not within the marker's instance data
 function attachSecretMessage(marker) {
   var infowindow = new google.maps.InfoWindow({
-    <% @spot.each do |f| %>
-    title: <%= f.description %>
-    //  content: "<%= f.description %>"
-    <% end %>
+    var contentString = [<% @spot.each do |f| %>
+    {Description: "<%= f.description %>"},<% end %>];
+    content: contentString
   });
 
   google.maps.event.addListener(marker, 'click', function() {
