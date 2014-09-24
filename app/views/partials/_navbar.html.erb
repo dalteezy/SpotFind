@@ -1,7 +1,7 @@
 
 
 <!-- <nav class="navbar navbar-default" role="navigation">
- -->  <div class="container-fluid navcolor" style=" margin-bottom: -20px;">
+ -->  <div class="container-fluid navcolor" style=" margin-bottom: -20px; positon: fixed;">
     
     <div class="navbar-header">
       
@@ -15,7 +15,7 @@
           <% if current_user %>
           <ul class="Logout nav navbar-nav navbar-right nav_links">
            <!-- <li><a style="color: black;" href="<%= new_spot_path %>">Add Spot</a></li> -->
-          <li><a style="color: black;" href="<%= welcomes_path %>">Blank</a></li>
+          <!-- <li><a style="color: black;" href="<%= welcomes_path %>">Blank</a></li> -->
          <li><%= link_to "Logout", session_path, method: :delete, class: "logout" %></li>
           </ul>
 
