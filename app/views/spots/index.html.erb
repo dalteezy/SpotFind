@@ -50,9 +50,8 @@ marker.setTitle((i + 1).toString());
 // The five markers show a secret message when clicked
 // but that message is not within the marker's instance data
 function attachSecretMessage(marker) {
+    var contentString = "hello";
   var infowindow = new google.maps.InfoWindow({
-    var contentString = [<% @spot.each do |f| %>
-    {Description: "<%= f.description %>"},<% end %>];
     content: contentString
   });
 
