@@ -70,5 +70,14 @@ margin: 0;
 
   .add_spot_button {
   position: relative;
-  left: 25%;
+  left: 45%;
+  }
+
+  .header_style {
+    position: absolute;
+    left: 22.5%;
+  }
+  
+  #markerStatus {
+    visibility: hidden;
   }
