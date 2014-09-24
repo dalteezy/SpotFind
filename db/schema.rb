@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922021216) do
+ActiveRecord::Schema.define(version: 20140924041309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,8 +45,12 @@ ActiveRecord::Schema.define(version: 20140922021216) do
     t.string   "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "lat",         default: 0.0
-    t.float    "lon",         default: 0.0
+    t.float    "lat",                default: 0.0
+    t.float    "lon",                default: 0.0
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "user_spots", force: true do |t|
