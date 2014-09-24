@@ -1,5 +1,7 @@
 class SpotsController < ApplicationController
 
+  before_action :require_login
+
   def index
     @spot = Spot.all
   end
@@ -18,4 +20,13 @@ private
     params.require(:spot).permit(:lat, :lon, :name, :description, :bust_factor, :rating, :photo)
   end
 
+  def require_login
+    unless current_user
+      redirect_to new_user_path
+    end
+  end
+
+
+
 end
+
