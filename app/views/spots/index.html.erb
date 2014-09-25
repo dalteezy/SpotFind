@@ -21,7 +21,7 @@ function initialize() {
         lat: 34.012980899999995,
         lng: -118.49515380000003
         },
-    zoom: 10
+    zoom: 9
   };
   
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -51,9 +51,10 @@ function initialize() {
 
 // The five markers show a secret message when clicked
 // but that message is not within the marker's instance data
+
 function attachSecretMessage(marker) {
   var infowindow = new google.maps.InfoWindow({
-    content: "<b>" + "Name: " + "</b>" + marker.name + "<br>" + "<b>" + " Description: " + "</b>" + marker.description + "<br>" + "<b>" + " Bust Factor: " + "</b>" + marker.bust_factor + "<br>" + "<b>" + " Rating: " + "</b>" + marker.rating + "<br>" + "<b>" + " Photo: " + "</b>" + "<img src='" + marker.photo + "'>" + "<br>" + "<b>" + "Created By: " + "</b>" +  marker.user
+    content: "<b>" + "Name: " + "</b>" + marker.name + "<br>" + "<b>" + " Description: " + "</b>" + marker.description + "<br>" + "<b>" + " Bust Factor: " + "</b>" + marker.bust_factor + "<br>" + "<b>" + " Rating: " + "</b>" + marker.rating + "<br>" + "<b>" + " Photo: " + "</b>" + "<img src='" + marker.photo + "'>" + "<br>" + "<b>" + "Created By: " + "</b>" + "<a href='users/#{user.id}'>" + marker.user + "</a>" 
   });
 
   google.maps.event.addListener(marker, 'click', function() {

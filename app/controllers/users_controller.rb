@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # @items = @user.items.all
     @comment = Comment.new
+    @spot = Spot.all
   end
 
   def new

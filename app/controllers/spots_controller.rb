@@ -10,6 +10,13 @@ class SpotsController < ApplicationController
     @spot = Spot.new
   end
 
+  def show
+    @spot = Spot.find(params[:id])
+    # @items = @user.items.all
+    @comment = Comment.new
+    @spot = Spot.all
+  end
+
   def create
     Spot.create(spot_params)
     redirect_to spots_path
