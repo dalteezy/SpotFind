@@ -149,7 +149,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 Description: <%= s.text_area :description, class: "form-control" %><br/>
               </div>
               <div class="form-group">
-                Bust Factor:</acronym> <%= s.number_field :bust_factor, in: 1..5, placeholder: "1-5", class: "form-control" %><br/>
+                <acronym title="How safe the spot is to skate"> Bust Factor:</acronym> <%= s.number_field :bust_factor, in: 1..5, placeholder: "1-5", class: "form-control" %><br/>
               </div>
               <div class="form-group">
                 Rating: <%= s.number_field :rating, in: 1..10, placeholder: "1-10", class: "form-control" %><br/>
