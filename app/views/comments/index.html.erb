@@ -1,0 +1,20 @@
+<h1 style="text-align: center;"> Comments </h1>
+
+<div class="container">
+<%= form_for @comment do |f| %>
+            <%= f.text_area :comment, placeholder: 'Comment', class: 'form-control' %>
+        </div>
+            <button type="submit" class="btn btn-primary" style="position: relative; left: 150px;">Submit</button>
+
+        <% end %>
+
+
+        <div class="container">
+        <% @comments.each do |c| %>
+        <b><%= c.user.username %>:</b>
+            <%= c.comment %>
+            <br>
+
+                <% end %><br>
+                
+    </div>

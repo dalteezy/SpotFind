@@ -157,6 +157,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
               
               <%= s.hidden_field :lat %>
               <%= s.hidden_field :lon %>
+              <%= s.hidden_field :user, :value => current_user.name %>
               <h4> Upload an Image </h4>
              <%= s.file_field :photo %>
              <br>

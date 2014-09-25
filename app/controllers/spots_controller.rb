@@ -17,7 +17,7 @@ class SpotsController < ApplicationController
 
 private
   def spot_params
-    params.require(:spot).permit(:lat, :lon, :name, :description, :bust_factor, :rating, :photo)
+    params.require(:spot).permit(:lat, :lon, :name, :description, :bust_factor, :rating, :photo, :user)
   end
 
   def require_login
@@ -29,4 +29,6 @@ private
 
 
 end
+
+
 
